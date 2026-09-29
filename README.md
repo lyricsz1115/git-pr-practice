@@ -7,7 +7,7 @@
 
 ## 当前功能
 
-- 读取整数成绩，并显示输入的成绩。
+- 读取一个整数成绩。
 - 检查成绩是否在 0～100 范围内。
 - 根据成绩输出等级：
   - 90～100：Excellent（优秀）
@@ -15,38 +15,35 @@
   - 70～79：Average（中等）
   - 60～69：Pass（及格）
   - 0～59：Fail（不及格）
+- 对无法解析为整数的输入给出错误提示。
 
-## 编译方法
-
-使用支持 C++ 的编译器。以 g++ 为例：
-
-```powershell
-g++ main.cpp -o score.exe
-```
-
-## 运行方法
+## 编译与运行
 
 在 Windows PowerShell 中执行：
 
 ```powershell
+g++ main.cpp -o score.exe
 .\score.exe
 ```
 
 ## 运行示例
 
-输入：
+输入 `85` 后，程序输出：
 
 ```text
-85
-```
-
-输出：
-
-```text
+Enter an integer score (0-100): 85
 Your score: 85
+Grade: Good
 ```
 
-## 后续计划
+## 边界验证
 
-- 增加成绩等级判断。
-- 完善输入校验和边界验证。
+| 输入 | 程序结果 |
+|---|---|
+| 59 | Grade: Fail |
+| 60 | Grade: Pass |
+| 89 | Grade: Good |
+| 90 | Grade: Excellent |
+| -1 | Error: score must be between 0 and 100. |
+| 101 | Error: score must be between 0 and 100. |
+| abc | Error: please enter an integer. |
